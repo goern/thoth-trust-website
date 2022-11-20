@@ -13,7 +13,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import ArtifactIndex from "./Artifact/Index";
+import { Link } from "react-router-dom";
+
+import Main from "./components/Main";
 
 interface Props {
   /**
@@ -24,7 +26,7 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
+const navItems = ["/", "/artifacts", "/about", "/contact"];
 
 export default function App(props: Props) {
   const { window } = props;
@@ -77,9 +79,7 @@ export default function App(props: Props) {
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {item}
-              </Button>
+              <Link to={item}>{item} &nbsp;</Link>
             ))}
           </Box>
         </Toolbar>
@@ -106,7 +106,7 @@ export default function App(props: Props) {
       </Box>
       <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
-        <ArtifactIndex />
+        <Main />
       </Box>
     </Box>
   );

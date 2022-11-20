@@ -13,12 +13,9 @@ import IconButton from "@mui/material/IconButton";
 import FirstPageIcon from "@mui/icons-material/FirstPage";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-
 import LastPageIcon from "@mui/icons-material/LastPage";
-import DownloadIcon from "@mui/icons-material/Download";
-import LoupeIcon from "@mui/icons-material/Loupe";
 
-import { Link } from "@mui/material";
+import ArtifactTableRow from "./TableRow";
 
 interface ArtifactListActionsProps {
   count: number;
@@ -153,25 +150,7 @@ export default function ArtifactList() {
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
           ).map((row) => (
-            <TableRow key={row.org_id + "." + row.artifact_id}>
-              <TableCell component="th" scope="row">
-                {row.org_id}
-              </TableCell>
-              <TableCell style={{ width: 160 }} align="right">
-                {row.artifact_id}
-              </TableCell>
-              <TableCell style={{ width: 80 }} align="right">
-                {row.latest_version}
-              </TableCell>
-              <TableCell style={{ width: 240 }} align="right">
-                <Link href={row.download_url}>
-                  <DownloadIcon />
-                </Link>
-                <Link href={"/artifact/" + row.org_id + "/" + row.artifact_id}>
-                  <LoupeIcon />
-                </Link>
-              </TableCell>
-            </TableRow>
+            <ArtifactTableRow artifact={row} />
           ))}
           {emptyRows > 0 && (
             <TableRow style={{ height: 53 * emptyRows }}>

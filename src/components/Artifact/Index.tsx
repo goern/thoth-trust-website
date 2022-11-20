@@ -5,7 +5,7 @@ export interface ArtifactIndexProps {}
 const ArtifactIndex = ({ ...rest }: ArtifactIndexProps) => {
   return (
     <div>
-      <h2>Artifact List</h2>
+      <h2>Index</h2>
       <p>
         <ArtifactList />
       </p>
