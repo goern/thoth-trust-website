@@ -100,24 +100,18 @@ function ArtifactListActions(props: ArtifactListActionsProps) {
 function createData(
   org_id: string,
   artifact_id: string,
-  latest_version: string,
-  download_url: string
+  latest_version: string
 ) {
   return {
     org_id: org_id,
     artifact_id: artifact_id,
     latest_version: latest_version,
-    download_url: download_url,
   };
 }
 
 const rows = [
-  createData(
-    "org.apache",
-    "log4j",
-    "2.16.0",
-    "https://repo1.maven.org/maven2/org/apache/log4j/log4j/2.16.0/log4j-2.16.0.jar"
-  ),
+  createData("org.apache", "log4j", "2.16.0"),
+  createData("org.apache.logging.log4j", "log4j", "2.18.0"),
 ];
 
 export default function ArtifactList() {

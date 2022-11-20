@@ -28,9 +28,6 @@ const ArtifactTableRow = ({
         {artifact.latest_version}
       </TableCell>
       <TableCell style={{ width: 240 }} align="right">
-        <Link href={artifact.download_url}>
-          <DownloadIcon />
-        </Link>
         <Link
           href={"/artifact/" + artifact.org_id + "/" + artifact.artifact_id}
         >
