@@ -15,6 +15,7 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
 
+import { Artifact } from "./Artifact";
 import ArtifactTableRow from "./TableRow";
 
 interface ArtifactListActionsProps {
@@ -97,24 +98,11 @@ function ArtifactListActions(props: ArtifactListActionsProps) {
   );
 }
 
-function createData(
-  org_id: string,
-  artifact_id: string,
-  latest_version: string
-) {
-  return {
-    org_id: org_id,
-    artifact_id: artifact_id,
-    latest_version: latest_version,
-  };
+interface ArtifactListProps {
+  rows: Artifact[];
 }
 
-const rows = [
-  createData("org.apache", "log4j", "2.16.0"),
-  createData("org.apache.logging.log4j", "log4j", "2.18.0"),
-];
-
-export default function ArtifactList() {
+export default function ArtifactList({ rows }: ArtifactListProps) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 

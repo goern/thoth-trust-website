@@ -3,11 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 
-export interface NavLinkListProps {}
-
-const navItems = ["/", "/artifacts", "/about", "/contact"];
-
-export default function App(props: NavLinkListProps) {
+export function NavLinkList() {
   return (
     <Box sx={{ display: { xs: "none", sm: "block" } }}>
       <NavLink to="/">
@@ -30,3 +26,5 @@ export default function App(props: NavLinkListProps) {
     </Box>
   );
 }
+
+export default NavLinkList;

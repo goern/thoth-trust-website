@@ -1,5 +1,5 @@
-export default interface Artifact {
-  org_id: string;
+export interface Artifact {
+  group_id: string;
   artifact_id: string;
   latest_version: string;
 }
